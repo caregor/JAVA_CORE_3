@@ -1,13 +1,31 @@
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 
+@Data
 public class Employee {
     private String FIO;
     private String position;
     private String phone;
     private BigDecimal salary;
     private LocalDate birthDate;
+
+    public Employee(String fio, String position, String phone, BigDecimal salary, LocalDate birthDate) {
+        this.FIO = fio;
+        this.position = position;
+        this.phone = phone;
+        this.salary = salary;
+        this.birthDate = birthDate;
+    }
+
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 
 
     public int getAge() {
@@ -25,9 +43,6 @@ public class Employee {
         System.out.println(this);
     }
 
-    public void increaseSalary(int value) {
-        this.salary = salary.add(BigDecimal.valueOf(value));
-    }
     /**
      * Сравнивает две даты, представленные в виде строк в формате "yyyy-mm-dd".
      *
